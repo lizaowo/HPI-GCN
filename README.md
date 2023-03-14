@@ -6,16 +6,16 @@ HPI-GCN-OP-K9 achieved 85.6%, HPI-GCN-OP-K5 achieved 86.0%, HPI-GCN-RP-K5 achiev
 The top-1 accuracy (%) and inference speed of HPI-GCN-RP and HPI-GCN-OP-K9 on the NTU-RGB+D 120 and NTU-RGB+D 60 benchmark with multi-stream models.
 The inference speed is measured in milliseconds / iteration on a NVIDIA RTX 3090 GPU with batch size 64 and full precision (fp32).
 
-| Model       | NTU120 X-Sub (%) | NTU120 X-Set (%) | NTU60 X-Sub (%) | NTU60 X-View (%) | Infer-speed (ms/iter) |
-|-------------|:----------------:|:----------------:|:---------------:|:----------------:|:---------------------:|
-| HPI-GCN-RP  |       85.5       |       86.4       |      90.2       |       95.1       |          33           |
-| 2-stream    |       88.9       |       89.9       |      92.3       |       96.3       |          66           |
-| 4-stream    |       89.5       |       90.7       |      92.6       |       96.6       |          132          |
-| 6-stream    |       89.8       |       90.9       |      92.8       |       96.8       |          198          |
+| Model         | NTU120 X-Sub (%) | NTU120 X-Set (%) | NTU60 X-Sub (%) | NTU60 X-View (%) | Infer-speed (ms/iter) |
+|---------------|:----------------:|:----------------:|:---------------:|:----------------:|:---------------------:|
+| HPI-GCN-RP    |       85.5       |       86.4       |      90.2       |       95.1       |          33           |
+| 2-stream      |       88.9       |       89.9       |      92.3       |       96.3       |          66           |
+| 4-stream      |       89.5       |       90.7       |      92.6       |       96.6       |          132          |
+| 6-stream      |       89.8       |       90.9       |      92.8       |       96.8       |          198          |
 | HPI-GCN-OP-K9 |       85.6       |       87.2       |      90.3       |       95.6       |          42           |
-| 2-stream    |       89.1       |       90.3       |      92.4       |       96.5       |          84           |
-| 4-stream    |       89.7       |       91.1       |      92.8       |       96.9       |          168          |
-| 6-stream    |       90.1       |       91.5       |      93.0       |       97.0       |          252          |
+| 2-stream      |       89.1       |       90.3       |      92.4       |       96.5       |          84           |
+| 4-stream      |       89.7       |       91.1       |      92.8       |       96.9       |          168          |
+| 6-stream      |       90.1       |       91.5       |      93.0       |       97.0       |          252          |
 
 
 ## Architecture of HPI-GC
