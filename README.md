@@ -1,10 +1,10 @@
 # HPI-GCN
-Note: We provide the training and inference weights of HPI-GCN on NTU120 CSub with joint modality only. 
-HPI-GCN-OP-K9 achieved 85.6%, HPI-GCN-OP-K5 achieved 86.0%, HPI-GCN-RP-K5 achieved 85.5%.
+Note: We provide the training and inference weights of HPI-GCN on NTU120 CSub with joint modality only, 
+achieving 85.6%, 86.0%, and 85.5% for HPI-GCN-OP-K9, HPI-GCN-OP-K5, and HPI-GCN-RP-K5, respectively.
 
 ## More detailed experimental results
-The top-1 accuracy (%) and inference speed of HPI-GCN-RP and HPI-GCN-OP-K9 on the NTU-RGB+D 120 and NTU-RGB+D 60 benchmark with multi-stream models.
-The inference speed is measured in milliseconds / iteration on a NVIDIA RTX 3090 GPU with batch size 64 and full precision (fp32).
+We report the top-1 accuracy (%) and inference speed (in milliseconds per iteration on a NVIDIA RTX 3090 GPU with batch size 64 and full precision 
+(fp32)) of HPI-GCN-RP and HPI-GCN-OP-K9 on the NTU-RGB+D 120 and NTU-RGB+D 60 benchmark with multi-stream models.
 
 | Model         | NTU120 X-Sub (%) | NTU120 X-Set (%) | NTU60 X-Sub (%) | NTU60 X-View (%) | Infer-speed (ms/iter) |
 |---------------|:----------------:|:----------------:|:---------------:|:----------------:|:---------------------:|
@@ -22,7 +22,8 @@ The inference speed is measured in milliseconds / iteration on a NVIDIA RTX 3090
 ![image](src/HPI_GC.png)
 
 ## Structure of HPI-GCN-RP
-![image](src/HPI_GCN_RP.png)
+![image](src/HPI_GCN.png)
+We provide a comparison of the HPI-GCN-RP architecture and its performance against other SOTA models in terms of accuracy and inference speed. 
 
 
 # Prerequisites
@@ -85,7 +86,7 @@ python main.py --config config/nturgbd120-cross-subject/HPI_GCN_OP.yaml --model_
 ```
 
 ### Transformer
-After training, convert the training weights to inference weights.
+- After training, convert the training weights to inference weights.
 ```
 # Example: training HPI-GCN-OP-K9 on NTU RGB+D 120 cross subject with GPU 0
 python Transformer.py --load ./test_weights/weight_ntu120/HPI_120CSub_OP_T9K9_j0/runs-94-46248.pt --save ./test_weights/weight_ntu120/HPI_120CSub_OP_T9K9_j0/inferHPI_OP_K9.pt --arch HPI_GCN_OP
@@ -94,14 +95,14 @@ python Transformer.py --load ./test_weights/weight_ntu120/HPI_120CSub_OP_T9K9_j0
 
 ### Testing
 
-- To test the trained models saved in ./test_weights/weight_ntu120/HPI_120CSub_OP_T9K9_j0, run the following command:
-- You're going to get HPI-GCN-OP-K9 test weight achieves 85.6% on NTU120 CSub with joint modality only
+- To test the trained models saved in ./test_weights/weight_ntu120/HPI_120CSub_OP_T9K9_j0, run the following command, 
+and you will get HPI-GCN-OP-K9 test weight achieving 85.6% on NTU120 CSub with joint modality only.
 ```
 python main.py --phase test --config config/nturgbd120-cross-subject/HPI_GCN_OP.yaml --model_args deploy=True --weights ./test_weights/weight_ntu120/HPI_120CSub_OP_T9K9_j0/inferHPI_OP_K9.pt --device 0
 ```
 
 ### Ensemble
-- To ensemble the results of different modalities, need to train the six-stream model first, run:
+- To ensemble the results of different modalities, you need to train the six-stream model first. Run the following command:
 
 ```
 python Mensemble.py --dataset ntu120/xsub
